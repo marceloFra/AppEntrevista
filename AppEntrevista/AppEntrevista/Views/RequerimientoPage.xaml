@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppEntrevista.RequerimientoPage"
+             Title="Requerimiento">
+    <ContentPage.Content>
+
+        <Grid>
+
+            <StackLayout>
+                <ListView x:Name="Pregunta_List" HasUnevenRows="True" SeparatorColor="Red">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Grid >
+                                        <Label Text="{Binding idRequerimiento}" IsVisible="False"></Label>
+                                    </Grid>
+                                    <StackLayout  Orientation="Horizontal">
+                                        <Label Text="{Binding nombreRequerimiento}" Font="15,Bold" TextColor="Indigo"/>
+                                        <Label Text="{Binding empresa}" TextColor="Black"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding puesto}" Font="15,Bold" />
+                                        <Label Text="{Binding estadoRequerimiento}" TextColor="Black"></Label>
+
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+            <Grid Opacity=".8" BackgroundColor="Black" x:Name="opacidad">
+                <ActivityIndicator x:Name="waitInidicator" HorizontalOptions="Center" VerticalOptions="Center"></ActivityIndicator>
+            </Grid>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

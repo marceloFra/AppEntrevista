@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AppEntrevista"
+			 x:Class="AppEntrevista.MasterPage"
+			 Padding="0,40,0,0"
+			 Icon="hamburger.png"
+			 Title="Personal Organiser"  BackgroundColor="LightGray">
+    <ContentPage.ToolbarItems>
+     
+    </ContentPage.ToolbarItems>
+    
+    <StackLayout>
+        <ListView x:Name="listView" x:FieldModifier="public">
+            <ListView.Header>
+                <Grid >
+                     
+                    <Label
+              Grid.Column="1"
+              Grid.Row="2"
+              Text="IT DATA"
+              Style="{DynamicResource SubtitleStyle}"/>
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemsSource>
+                <x:Array Type="{x:Type local:MasterPageItem}">
+                    <local:MasterPageItem Title="Preguntas" IconSource="reminders.png" TargetType="{x:Type local:PreguntasPage}" />
+                    <local:MasterPageItem Title="Requerimiento" IconSource="reminders.png" TargetType="{x:Type local:RequerimientoPage}" />
+                    <local:MasterPageItem Title="Postulantes" IconSource="contacts.png" TargetType="{x:Type local:PostulantesPage}" />
+                   
+                </x:Array>
+            </ListView.ItemsSource>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="5,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding IconSource}" />
+                            <Label Grid.Column="1" Text="{Binding Title}" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+    
+</ContentPage>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppEntrevista.Views.PostulantesRequerPage"
+             Title="Postulantes y Preguntas ">
+    <ContentPage.Content>
+        <Grid>
+
+            <StackLayout>
+
+                <ListView x:Name="PostulantesReq_List" ItemsSource="lista_PostulantesReq" HasUnevenRows="True" SeparatorColor="Red">
+                    <ListView.ItemTemplate >
+                        <DataTemplate>
+                            <!--I-->
+                            <ViewCell>
+                                <StackLayout> 
+                                    <StackLayout  Orientation="Horizontal">
+                                        <Label Text="Postulante:" Font="15,Bold" TextColor="Indigo"/>
+                                        <Label Text="{Binding nombre}" TextColor="Black"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding correo}" TextColor="Black"></Label>
+                                        <Label Text="{Binding numero}" Font="15,Bold" HorizontalOptions="EndAndExpand"/>
+
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <Button Text="Agregar Examenes" Clicked="Agregar_Clicked"></Button>
+                
+                <ListView x:Name="PreguntasReq_List" ItemTapped="PreguntasReq_List_ItemTapped"  HasUnevenRows="True" SeparatorColor="Red">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <!--I-->
+                            <ViewCell>
+                                <StackLayout>
+                                    <StackLayout  Orientation="Horizontal">
+                                        <Label Text="{Binding idListPregunta}" IsVisible="False"></Label>
+                                        <Label Text="{Binding nombreListPregunta}" Font="18,Bold" TextColor="Indigo"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal"> 
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                
+            </StackLayout>
+
+            <Grid Opacity=".8" BackgroundColor="Black" x:Name="opacidad">
+                <ActivityIndicator x:Name="waitInidicator" HorizontalOptions="Center" VerticalOptions="Center"></ActivityIndicator>
+            </Grid>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

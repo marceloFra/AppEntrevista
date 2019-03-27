@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             x:Class="AppEntrevista.AddPreguntaRequer"
+             Title="Agregar Pregunta">
+    <ContentPage.Content>
+        <Grid>
+
+            <StackLayout> 
+                <ListView x:Name="Preguntas_List"  HasUnevenRows="True" SeparatorColor="Red" ItemTapped="Preguntas_List_ItemTapped">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <!--I-->
+                            <ViewCell>
+                                <StackLayout>
+                                    <Grid >
+                                        <Label Text="{Binding idListPregunta}" IsVisible="False"></Label>
+                                    </Grid>
+                                    <StackLayout  Orientation="Horizontal">
+                                        <Label Text="{Binding  nombreListPregunta}" Font="15,Bold" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        
+                                        <Label Text="Creador" Font="15,Bold" TextColor="Indigo"/>
+                                        <Label Text="{Binding creador}" TextColor="Black"></Label>
+                                        <!--<controls:CheckBox CheckedChanged="Chk_Selecionado_CheckedChanged"  x:Name="Chk_Selecionado" HorizontalOptions="EndAndExpand"/>-->
+                                         
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <!--<Button Text="Registrar Examenes" Clicked="Registrar_Clicked"></Button> -->
+            </StackLayout>
+           
+            <Grid Opacity=".8" BackgroundColor="Black" x:Name="opacidad">
+                <ActivityIndicator x:Name="waitInidicator" HorizontalOptions="Center" VerticalOptions="Center"></ActivityIndicator>
+            </Grid>
+
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

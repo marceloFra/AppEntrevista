@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AppEntrevista"
+             x:Class="AppEntrevista.MainPage">
+
+    <ContentPage BackgroundImage="fondo2.jpg">
+        <ContentPage.Padding>
+            <OnPlatform x:TypeArguments="Thickness">
+                <On Platform="iOS, Android" Value="0,40,0,0" />
+            </OnPlatform>
+        </ContentPage.Padding>
+        
+        <StackLayout VerticalOptions="Center">
+            <Button Text="Administrador" Opacity="0.5" BackgroundColor="White" TextColor="Blue" Clicked="Button_ClickedAdministrador" ></Button>
+            <Button Text="Postulante"  Opacity="0.5" BackgroundColor="White" TextColor="Blue" Clicked="Button_ClickedPostulante" ></Button>
+        </StackLayout>
+ 
+    </ContentPage>
+
+    <ContentPage  BackgroundImage="fondo5.jpg">
+        <ContentPage.Padding>
+            <OnPlatform x:TypeArguments="Thickness">
+                <On Platform="iOS, Android" Value="0,40,0,0" />
+            </OnPlatform>
+        </ContentPage.Padding>
+        
+    </ContentPage>
+
+    <ContentPage BackgroundImage="fondo6.jpg">
+      
+        <ContentPage.Padding>
+            <OnPlatform x:TypeArguments="Thickness">
+                <On Platform="iOS, Android" Value="0,40,0,0" />
+            </OnPlatform>
+        </ContentPage.Padding>
+         
+    </ContentPage>
+
+</CarouselPage>

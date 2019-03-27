@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppEntrevista.PostulantesPregPage"
+             Title="Preguntas por Postulantes">
+    <ContentPage.Content> 
+            <Grid> 
+                <StackLayout>
+                <Label Text="{Binding nombre}"></Label>
+                <Label Text="{Binding correo}"></Label>
+                <Label Text=""></Label>
+                <ListView x:Name="PostulantePre_List" HasUnevenRows="True" ItemSelected="PostulantePre_List_ItemSelected">
+                    <ListView.ItemTemplate >
+                        <DataTemplate>
+                            <!--I-->
+                            <ViewCell>
+                                <StackLayout>
+                                    <StackLayout  Orientation="Horizontal">  
+                                        <Label Text="{Binding pregunta}" TextColor="Black" HeightRequest="60"></Label>
+                                    </StackLayout> 
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                </StackLayout>
+
+                <Grid Opacity=".8" BackgroundColor="Black" x:Name="opacidad">
+                    <ActivityIndicator x:Name="waitInidicator" HorizontalOptions="Center" VerticalOptions="Center"></ActivityIndicator>
+                </Grid> 
+            </Grid> 
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppEntrevista.Views.LoginPostulante"
+             BackgroundImage="fondo5.jpg">
+    <ContentPage.Content>
+  
+      <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
+        <BoxView HeightRequest="10"/>
+        <Image HorizontalOptions="Center" WidthRequest="300" Source=""/>
+        <Frame BackgroundColor="#BF043055" HasShadow="False">
+          <StackLayout Orientation="Vertical" Spacing="10">
+            <Entry x:Name="usernameEntry" Text="" Placeholder="Correo"
+                   PlaceholderColor="White" HeightRequest="60"
+                   Keyboard="Email"
+                   TextColor="White"/>
+            <Entry x:Name="passwordEntry" Text="" Placeholder="Codigo" 
+                   PlaceholderColor="White" HeightRequest="60"
+                   IsPassword="True"
+                   TextColor="White"/>
+          </StackLayout>
+        </Frame>
+        <Button Text="Iniciar" TextColor="White" Clicked="Button_Clicked"
+                FontAttributes="Bold" HorizontalOptions="FillAndExpand"
+                BackgroundColor="#088da5" />
+      </StackLayout>
+ 
+
+    </ContentPage.Content>
+</ContentPage>
