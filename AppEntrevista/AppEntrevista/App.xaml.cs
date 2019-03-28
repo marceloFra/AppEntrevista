@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entrevista.CS;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,7 @@ namespace AppEntrevista
         public App()
         {
             
-            NavigationPage navPage = new NavigationPage(new MainPage())
+            NavigationPage navPage = new NavigationPage(new SplashPage())
             {
                 BarBackgroundColor = Color.FromHex("#0081f9"),
                 BarTextColor = Color.White,

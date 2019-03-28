@@ -32,6 +32,16 @@ namespace AppEntrevista.Views
             string usuario = usernameEntry.Text.ToString();
             string password = passwordEntry.Text.ToString();
 
+            if (usuario.Equals(""))
+            {
+                await DisplayAlert("Login", "Administrador", "Ingrese su Usuario");
+                return;
+            }
+            if (password.Equals(""))
+            {
+                await DisplayAlert("Login", "Administrador", "Ingrese su Pasword");
+                return;
+            }
             if (!usuario.Equals("") || !password.Equals(""))
             { 
                 string url = Servicio.IP + "loginPostulante/" + usuario + "/" + password;

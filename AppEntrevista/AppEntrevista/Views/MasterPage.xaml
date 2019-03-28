@@ -7,50 +7,47 @@
 			 Padding="0,40,0,0"
 			 Icon="hamburger.png"
 			 Title="Personal Organiser"  BackgroundColor="LightGray">
-    <ContentPage.ToolbarItems>
-     
-    </ContentPage.ToolbarItems>
-    
-    <StackLayout>
-        <ListView x:Name="listView" x:FieldModifier="public">
-            <ListView.Header>
-                <Grid BackgroundColor="Transparent">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="200" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <Grid>
-                        <Image Source="bg.jpg" Aspect="AspectFill" />
-                        <StackLayout Padding="0,20,0,0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                            <controls:CircleImage BorderColor="White" BorderThickness="2" Source="icon.png" Aspect="AspectFill" WidthRequest="85" HeightRequest="85" />
-                            <Label Text="IT DATA" TextColor="White" FontSize="Large" />
-                        </StackLayout>
-                    </Grid>
-                </Grid>
-            </ListView.Header>
-            <ListView.ItemsSource>
-                <x:Array Type="{x:Type local:MasterPageItem}">
-                    <local:MasterPageItem Title="Preguntas" IconSource="reminders.png" TargetType="{x:Type local:PreguntasPage}" />
-                    <local:MasterPageItem Title="Requerimiento" IconSource="reminders.png" TargetType="{x:Type local:RequerimientoPage}" />
-                    <local:MasterPageItem Title="Postulantes" IconSource="contacts.png" TargetType="{x:Type local:PostulantesPage}" />
-                   
-                </x:Array>
-            </ListView.ItemsSource>
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Grid Padding="5,10">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="30"/>
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <Image Source="{Binding IconSource}" />
-                            <Label Grid.Column="1" Text="{Binding Title}" />
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="listView" x:FieldModifier="public">
+                <ListView.Header>
+                    <Grid BackgroundColor="Transparent">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="200" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid>
+                            <Image Source="bg.jpg" Aspect="AspectFill" />
+                            <StackLayout Padding="0,20,0,0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                <controls:CircleImage BorderColor="White" BorderThickness="2" Source="icon.png" Aspect="AspectFill" WidthRequest="85" HeightRequest="85" />
+                                <Label Text="IT DATA" TextColor="White" FontSize="Large" />
+                            </StackLayout>
                         </Grid>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackLayout>
-    
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemsSource>
+                    <x:Array Type="{x:Type local:MasterPageItem}">
+                        <local:MasterPageItem Title="Preguntas" IconSource="reminders.png" TargetType="{x:Type local:PreguntasPage}" />
+                        <local:MasterPageItem Title="Requerimiento" IconSource="reminders.png" TargetType="{x:Type local:RequerimientoPage}" />
+                        <local:MasterPageItem Title="Postulantes" IconSource="contacts.png" TargetType="{x:Type local:PostulantesPage}" />
+
+                    </x:Array>
+                </ListView.ItemsSource>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="5,10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding IconSource}" />
+                                <Label Grid.Column="1" Text="{Binding Title}" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>
