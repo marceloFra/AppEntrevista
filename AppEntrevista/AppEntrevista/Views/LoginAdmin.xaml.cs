@@ -36,35 +36,44 @@ namespace AppEntrevista.Views
             string password = passwordEntry.Text.ToString();
             string nombre = "";
 
-            if ( usuario.Equals("") )
-            {
-                await DisplayAlert("Login", "Administrador", "Ingrese su Usuario");
-                return;
-            }
-            if ( password.Equals(""))
-            {
-                await DisplayAlert("Login", "Administrador", "Ingrese su Pasword");
-                return;
-            }
-            if (!usuario.Equals("") || !password.Equals(""))
-            {
-                string url = Servicio.IP + "loginAdministrador/" + usuario + "/" + password;
-                var content = await _Client.GetStringAsync(url);
-                var post = JsonConvert.DeserializeObject<string>(content);
-                nombre = post;
-
-                if (!nombre.Equals("No existe usuario"))
+            try {
+                if (usuario.Equals(""))
                 {
-                    await Navigation.PushModalAsync(new Inicio(nombre: nombre));
+                    await DisplayAlert("Login", "Administrador", "Ingrese su Usuario");
+                    return;
+                }
+                if (password.Equals(""))
+                {
+                    await DisplayAlert("Login", "Administrador", "Ingrese su Pasword");
+                    return;
+                }
+                if (!usuario.Equals("") || !password.Equals(""))
+                {
+
+                    var slider = new Slider();
+
+                    string url = Servicio.IP + "loginAdministrador/" + usuario + "/" + password;
+                    var content = await _Client.GetStringAsync(url);
+                    var post = JsonConvert.DeserializeObject<string>(content);
+                    nombre = post;
+
+                    if (!nombre.Equals("No existe usuario"))
+                    {
+                        await Navigation.PushModalAsync(new Inicio(nombre: nombre));
+                    }
+                    else
+                    {
+                        await DisplayAlert("Login", "Administrador", "Ingresó Mal su Usuario o Password");
+                    }
                 }
                 else
-                {  
-                    await DisplayAlert("Login", "Administrador", "Ingresó Mal su Usuario o Password");
+                {
+                    await DisplayAlert("Login", "Administrador", "Ingrese su Usuario o Password");
                 }
             }
-            else
-            {
-                await DisplayAlert("Login", "Administrador", "Ingrese su Usuario o Password");
+            catch (Exception msj) {
+                string mensaje = msj.Message;
+                await  DisplayAlert("Login", mensaje, "Aceptar");
             }
              
         }

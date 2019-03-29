@@ -11,7 +11,7 @@ namespace AppEntrevista.CS
         //  public static string IP = "http://192.168.0.109:3000/";
         //  public static string IP = "http://192.168.1.17:3000/";
         //    public static string IP = "http://192.168.1.26:3000/";
-         public static string IP = "http://192.168.1.12:3000/";
+         public static string IP = "http://192.168.0.20:3000/";
 
         public static string GenerarNombre(int IdPostulante, int idRequerimiento, int idListpregunta, int idPregunta)
         {
