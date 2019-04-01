@@ -17,12 +17,16 @@ namespace AppEntrevista
         private   string url = Servicio.IP + "api/ListaPregunta";
         private HttpClient _Client = new HttpClient();
         private List<ListPreguntaCab> preguntas; 
-        public int idReq = 0; 
-        public AddPreguntaRequer (int IdRequerimiento)
+        public int idReq = 0;
+        Requerimiento modelo;
+
+        public AddPreguntaRequer (Requerimiento requerimiento)
 		{
 			InitializeComponent ();
             ListaPreguntas();
-            idReq = IdRequerimiento;
+            idReq = requerimiento.idRequerimiento;
+
+            modelo = requerimiento;
         }
 
         public async void ListaPreguntas()
@@ -70,7 +74,9 @@ namespace AppEntrevista
                     var json = resultado.Content.ReadAsStringAsync().Result;
                     if (json.Equals("1"))
                     {
-                        await DisplayAlert("Agregado", "Se agrego correctamente ", "Ok"); 
+                        await DisplayAlert("Agregado", "Se agrego correctamente ", "Ok");
+                        await Navigation.PushAsync(new PostulantesRequerPage(modelo));
+
                     }
                     if (json.Equals("0"))
                     {
@@ -85,10 +91,9 @@ namespace AppEntrevista
             else
             {
                  
-            }
-
-             PostulantesRequerPage pos = new PostulantesRequerPage(idReq);
-             pos.ListaPreguntasReq();
+            } 
+                // PostulantesRequerPage pos = new PostulantesRequerPage(modelo); 
+                //  pos.ListaPreguntasReq();
 
         }
 

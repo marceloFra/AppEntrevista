@@ -5,7 +5,7 @@
              xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
              x:Class="AppEntrevista.MasterPage" 
 			 Icon="hamburger.png"
-			 Title="Personal Organiser"  BackgroundColor="LightGray">
+			 Title="Personal Organiser"  BackgroundColor="DeepSkyBlue">
 
     <ContentPage.Content>
         <Grid BackgroundColor="Transparent">
@@ -28,9 +28,9 @@
                     </ListView.Header>
                     <ListView.ItemsSource>
                         <x:Array Type="{x:Type local:MasterPageItem}">
-                            <local:MasterPageItem Title="Preguntas" IconSource="reminders.png" TargetType="{x:Type local:PreguntasPage}" />
-                            <local:MasterPageItem Title="Requerimiento" IconSource="reminders.png" TargetType="{x:Type local:RequerimientoPage}" />
-                            <local:MasterPageItem Title="Postulantes" IconSource="contacts.png" TargetType="{x:Type local:PostulantesPage}" />
+                            <local:MasterPageItem Title="Preguntas" IconSource="notas.png" TargetType="{x:Type local:PreguntasPage}" />
+                            <local:MasterPageItem Title="Requerimiento" IconSource="descripcion.png" TargetType="{x:Type local:RequerimientoPage}" />
+                            <local:MasterPageItem Title="Postulantes" IconSource="group.png" TargetType="{x:Type local:PostulantesPage}" />
 
                         </x:Array>
                     </ListView.ItemsSource>

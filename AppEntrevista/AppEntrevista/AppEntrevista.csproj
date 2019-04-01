@@ -68,9 +68,6 @@
     <EmbeddedResource Update="Views\PreguntasPostuPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\ReminderPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="Views\RequerimientoPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>

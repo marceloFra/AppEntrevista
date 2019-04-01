@@ -24,12 +24,12 @@ namespace AppEntrevista.Views
         private List<ListPreguntaCab> PreguntaCab;
         private int IdRequerimiento;
 
-       
-       
+
+        Requerimiento requerimiento;
         public PostulantesRequerPage (Requerimiento modelo)
 		{
 			InitializeComponent ();
-            
+            requerimiento = modelo;
             url = Servicio.IP + "postulante/listPostulanteByIdReq/" + modelo.idRequerimiento;
           
             IdRequerimiento = modelo.idRequerimiento;
@@ -37,10 +37,7 @@ namespace AppEntrevista.Views
             ListaPreguntasReq();
         }
 
-        public PostulantesRequerPage(int idRequerimientos)
-        {
-            IdRequerimiento = idRequerimientos;
-        }
+         
 
         public async void ListaPostulantesReq()
         {
@@ -103,7 +100,7 @@ namespace AppEntrevista.Views
             //  Navigation.PushAsync(new AddPreguntaRequer(IdRequerimiento));
             // App.Current.MainPage = new NavigationPage(new AddPreguntaRequer(IdRequerimiento));
            // Navigation.PopToRootAsync();  --> para volver atras   
-            Navigation.PushAsync(new AddPreguntaRequer(IdRequerimiento));
+            Navigation.PushAsync(new AddPreguntaRequer(requerimiento));
         }
 
 

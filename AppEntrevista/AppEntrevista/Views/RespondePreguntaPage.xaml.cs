@@ -44,8 +44,29 @@ namespace AppEntrevista
             idPregunta = modelo.idPregunta;
 
             string nombre = Servicio.GenerarNombre(idPostula, idReque, modelo.idListPregunta, modelo.idPregunta); 
-            var mediaTestPath = "/storage/emulated/0/Android/data/com.companyname.AppEntrevista/files/"+ nombre + ".wav";
-            InitializeComponent ();
+          //  var mediaTestPath = "/storage/emulated/0/Android/data/com.companyname.AppEntrevista/files/"+ nombre + ".wav";
+           
+            #region Development Code
+            /*
+            nombre = nombre + ".wav";
+            
+            string rutaArchivoDeRutaPaAudio = "/storage/emulated/0/Android/data/com.companyname.AppEntrevista/files/";
+                        
+            var mediaTestPath = Path.Combine(rutaArchivoDeRutaPaAudio, nombre);
+            */
+            #endregion
+
+            #region Production Code
+            nombre = nombre + ".wav";
+
+            string rutaArchivoDeRutaPaAudio = "/data/user/0/com.companyname.AppEntrevista/cache/";
+
+            var mediaTestPath = Path.Combine(rutaArchivoDeRutaPaAudio, nombre);
+            #endregion
+
+
+            InitializeComponent();
+            
             //BindingContext = modelo;
             ListPreguntaDet = modelo;
             var assembly = IntrospectionExtensions.GetTypeInfo(typeof(RespondePreguntaPage)).Assembly;
