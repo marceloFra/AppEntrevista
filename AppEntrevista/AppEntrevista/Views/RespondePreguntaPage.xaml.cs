@@ -95,6 +95,7 @@ namespace AppEntrevista
             await RecordAudio();
             IrLista.IsEnabled = true;
             RecordButton.IsEnabled = false;
+             
         }
          
 
@@ -148,9 +149,7 @@ namespace AppEntrevista
 
             //    HttpContent fileStreamContent = new StreamContent(filePath.);
              
-            var content = new MultipartFormDataContent();
-
-          
+            var content = new MultipartFormDataContent(); 
             FileStream fs = File.OpenRead(filePath);
             StreamContent streamContent = new StreamContent(fs);
             streamContent.Headers.Add("Content-Type", "audio/wav"); 
@@ -160,21 +159,18 @@ namespace AppEntrevista
             HttpClient cliente = new HttpClient();
             var uploadServiceBaseAddress = Servicio.IP + "Upload/Sonidos"; 
             var httpResponseMessage = await cliente.PostAsync(uploadServiceBaseAddress, content);
-
-           
-
+             
             var result = await httpResponseMessage.Content.ReadAsStringAsync();
             
             fs.Close();
 
             /*METODO PARA GUARDAR EL NOMBRE AUDIO EN LA BASE DE DATOS Y
              * REGISTRAR QUE SE GRABO EL AUDIO CON ESTE POST */
-
-
-            await DisplayAlert("Aviso", "Guardado" , "Aceptar");
-
+              
+             await DisplayAlert("Aviso", "Guardado" , "Aceptar");
+              
         }
-
+         
         /*------------------------------------  -----------------------------*/
         private void PlayButton_Clicked(object sender, EventArgs e)
         {
@@ -202,6 +198,29 @@ namespace AppEntrevista
         }
 
         public List<ListPreguntaDet> listaPreguntas;
+
+        public async Task UpdateLista() { 
+            HttpClient _Client = new HttpClient();
+            string Url = Servicio.IP + "postulante/updateDelPregOfArrayDePregByPostReqPreg/" + idPost + "/" + idReq + "/" + idPregunta;
+            var content = await _Client.GetStringAsync(Url);
+            var post = JsonConvert.DeserializeObject<List<ListPreguntaDet>>(content);
+            listaPreguntas = new List<ListPreguntaDet>(post);
+
+            if (listaPreguntas.Count != 0)
+            {
+                NavigationPage MainPage = new NavigationPage(new PreguntasPostuPage(idRequerimiento: idReq, idPostulante: idPost, nombre: nomb, flagEstadoRespuestas: flagEstado, ListaPreguntaDet: listaPreguntas));
+                App.Current.MainPage = MainPage;
+            }
+            if (listaPreguntas.Count == 0)
+            {
+                int flagEstadoRespt = 122;
+                await CambioEstadoExamen(idReq, idPost, flagEstadoRespt);
+                await DisplayAlert("Felicidades", "Usted a terminado el examen! Pronto estaremos comunicaremos con usted", "Aceptar");
+                NavigationPage MainPage = new NavigationPage(new PreguntasPostuPage(idRequerimiento: idReq, idPostulante: idPost, nombre: nomb, flagEstadoRespuestas: flagEstadoRespt, ListaPreguntaDet: listaPreguntas));
+                App.Current.MainPage = MainPage;
+            } 
+        }
+
         private async void IrLista_Clicked(object sender, EventArgs e)
         {
             HttpClient _Client = new HttpClient();
@@ -221,9 +240,7 @@ namespace AppEntrevista
                 NavigationPage MainPage = new NavigationPage(new PreguntasPostuPage(idRequerimiento: idReq, idPostulante: idPost, nombre: nomb, flagEstadoRespuestas: flagEstadoRespt, ListaPreguntaDet: listaPreguntas));
                 App.Current.MainPage = MainPage;
             }
-
-          
-
+             
         }
 
 

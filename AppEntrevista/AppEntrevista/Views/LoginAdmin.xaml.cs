@@ -73,7 +73,7 @@ namespace AppEntrevista.Views
             }
             catch (Exception msj) {
                 string mensaje = msj.Message;
-                await  DisplayAlert("Login", mensaje, "Aceptar");
+                await DisplayAlert("Login", "Error al conectar a Internet", "Aceptar");
             }
              
         }

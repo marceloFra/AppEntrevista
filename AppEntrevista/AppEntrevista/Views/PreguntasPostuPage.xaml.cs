@@ -24,9 +24,7 @@ namespace AppEntrevista
         private HttpClient _Client = new HttpClient();
         private List<ListPreguntaDet> listaPreguntas;
         string nom = "";
-
-        public PreguntasPostuPage()
-        { }
+ 
 
             public PreguntasPostuPage(int idRequerimiento, int idPostulante, string nombre, int flagEstadoRespuestas, List<ListPreguntaDet> ListaPreguntaDet)
         {
