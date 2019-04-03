@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppEntrevista.Views.LoginPostulante"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="AppEntrevista.Views.LoginPostulante" 
              BackgroundImage="fondo5.jpg">
     <ContentPage.Content>
   
@@ -16,20 +16,14 @@
                    PlaceholderColor="White" HeightRequest="60"
                    Keyboard="Email"
                    TextColor="White"/>
-              
-            <Entry x:Name="passwordEntry" Text="" Placeholder="Codigo" 
+
+             <Entry x:Name="passwordEntry" Text="" Placeholder="Codigo" 
                    PlaceholderColor="White" HeightRequest="60"
                    IsPassword="True"
                    TextColor="White"/>
-
-                    <controls:ImageEntry Text="Left Image" 
-                                      Placeholder="Xamarin Skills"
-                                      AccentColor="Red"
-                                      ImageAlignment="Left"
-                                      LImageSource="email"/>
-
-                </StackLayout>
-        </Frame>
+  
+          </StackLayout>
+        </Frame>    
         <Button Text="Iniciar" TextColor="White" Clicked="Button_Clicked"
                 FontAttributes="Bold" HorizontalOptions="FillAndExpand"
                 BackgroundColor="#088da5" />

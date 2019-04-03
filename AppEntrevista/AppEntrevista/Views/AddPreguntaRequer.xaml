@@ -20,12 +20,9 @@
                                     <StackLayout  Orientation="Horizontal">
                                         <Label Text="{Binding  nombreListPregunta}" Font="15,Bold" />
                                     </StackLayout>
-                                    <StackLayout Orientation="Horizontal">
-                                        
+                                    <StackLayout Orientation="Horizontal"> 
                                         <Label Text="Creador" Font="15,Bold" TextColor="Indigo"/>
                                         <Label Text="{Binding creador}" TextColor="Black"></Label>
-                                        <!--<controls:CheckBox CheckedChanged="Chk_Selecionado_CheckedChanged"  x:Name="Chk_Selecionado" HorizontalOptions="EndAndExpand"/>-->
-                                         
                                     </StackLayout>
                                 </StackLayout>
                             </ViewCell>

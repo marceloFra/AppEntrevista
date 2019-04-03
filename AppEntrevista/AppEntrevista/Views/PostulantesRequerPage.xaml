@@ -41,7 +41,8 @@
                                         <Label Text="{Binding idListPregunta}" IsVisible="False"></Label>
                                         <Label Text="{Binding nombreListPregunta}" Font="18,Bold" TextColor="Indigo"/>
                                     </StackLayout>
-                                    <StackLayout Orientation="Horizontal"> 
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image Source=""></Image>
                                     </StackLayout>
                                 </StackLayout>
                             </ViewCell>
